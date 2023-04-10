@@ -3,8 +3,12 @@ const {Schema, model} = require('mongoose');
 const ShoppingItemSchema = Schema({
     title:{
         type: String,
-        required: true
+        required: true,
     },
+    userId:{
+        type: String,
+        required: true,
+    }
 
 })
 

@@ -1,7 +1,8 @@
 const express = require("express");
-const { register } = require("./controllers/UserController");
+const { register, login } = require("./controllers/UserController");
 const { dbConnection } = require("./database/config");
-const cors = require('cors')
+const cors = require('cors');
+const { addShoppingItems, getAllShoppingItems } = require("./controllers/ShoppingItemsController");
 
 const app = express();
 app.use(express.json());
@@ -13,6 +14,9 @@ require("dotenv").config();
 dbConnection();
 
 app.post("/user", register);
+app.post("/getuser", login)
+app.post("/additem", addShoppingItems )
+app.post("/getshoppingitems", getAllShoppingItems )
 
 app.listen(port, () => {
   console.log(`App listening at PORT:${port}`);
